@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Tweet.h"
+#import "DateTools.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,9 +18,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UILabel *twitterHandleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *synopsisLabel;
-@property (strong, nonatomic) IBOutlet UIButton *retweetsButton;
-@property (strong, nonatomic) IBOutlet UIButton *repliesButton;
-@property (strong, nonatomic) IBOutlet UIButton *heartsButton;
+@property (strong, nonatomic) IBOutlet UILabel *retweetsLabel;
+@property (strong, nonatomic) IBOutlet UILabel *likesLabel;
+- (IBAction)didTapReply:(id)sender;
+- (IBAction)didTapRetweet:(id)sender;
+- (IBAction)didTapLike:(id)sender;
+@property (strong, nonatomic) NSDate *start;
 @property (strong, nonatomic) Tweet* tweet;
 @end
 
