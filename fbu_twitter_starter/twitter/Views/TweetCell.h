@@ -23,8 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (IBAction)didTapReply:(id)sender;
 - (IBAction)didTapRetweet:(id)sender;
 - (IBAction)didTapLike:(id)sender;
-@property (strong, nonatomic) NSDate *start;
 @property (strong, nonatomic) Tweet* tweet;
 @end
+
 
 NS_ASSUME_NONNULL_END

@@ -16,6 +16,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -25,7 +26,7 @@
 }
 - (void)setTweet:(Tweet *)tweet {
     _tweet = tweet;
-    self.start = [NSDate date];
+    //NSLog(@"%@", tweet.start);
 //    let year = Date().year;
 //    NSLog(year);
     [self refreshTweet];
@@ -38,9 +39,14 @@
     //self.repliesButton.titleLabel.text = [NSString stringWithFormat:@"%i", self.tweet.favoriteCount];
     self.nameLabel.text = self.tweet.user.name;
     self.twitterHandleLabel.text = [@"@" stringByAppendingString:self.tweet.user.screenName];
-//    NSDate *previous = self.now;
+    if (self.tweet.start == nil) {
+        self.tweet.start = [NSDate date];
+    } else {
+        NSLog(@"WE GOT A START TIME WHOOOOOO");
+    }
+    //NSDate *previous = self.start;
 //    NSLog(@"Time Ago: %@",self.now);
-    self.dateLabel.text = [self.start shortTimeAgoSinceNow];
+    self.dateLabel.text = [self.tweet.start shortTimeAgoSinceNow];
     //[@"Time Ago: %@", date shortTimeAgoSinceNow];
     self.synopsisLabel.text = self.tweet.text;
     NSString *URLString = self.tweet.user.profilePicture;

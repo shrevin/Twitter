@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) User *user; // Contains Tweet author's name, screenname, etc.
 @property (nonatomic, strong) NSString *createdAtString; // Display date
 @property (nonatomic, strong) User *retweetedByUser;  // If the tweet is a retweet, this will be the user who retweeted
+@property (strong, nonatomic) NSDate *start;
 
 
 // METHODS

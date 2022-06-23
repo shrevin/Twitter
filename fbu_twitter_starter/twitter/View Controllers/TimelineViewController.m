@@ -87,9 +87,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    UINavigationController *navigationController = [segue destinationViewController];
-    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-    composeController.delegate = self;
+//    UINavigationController *navigationController = [segue destinationViewController];
+//    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+//    composeController.delegate = self;
+    UIViewController *detailsVC = [segue destinationViewController];
+    
     
 }
 
