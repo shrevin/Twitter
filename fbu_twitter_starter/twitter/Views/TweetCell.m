@@ -44,9 +44,24 @@
     } else {
         NSLog(@"WE GOT A START TIME WHOOOOOO");
     }
+    
+    //NSDate *now = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // Configure the input format to parse the date string
+    formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
+    // Convert String to Date
+    NSDate *date = [formatter dateFromString:self.tweet.createdAtString];
+    NSLog(@"Todays date is %@",[formatter stringFromDate:date]);
+    // NSLog(now);
+
+//    NSDate *date = [format dateFromString:self.tweet.createdAtString];
+    //NSString* str = [format stringFromDate:date];
+    //NSLog([date shortTimeAgoSinceNow]);
+    
     //NSDate *previous = self.start;
 //    NSLog(@"Time Ago: %@",self.now);
-    self.dateLabel.text = [self.tweet.start shortTimeAgoSinceNow];
+    self.dateLabel.text = [date shortTimeAgoSinceNow];
+    
     //[@"Time Ago: %@", date shortTimeAgoSinceNow];
     self.synopsisLabel.text = self.tweet.text;
     NSString *URLString = self.tweet.user.profilePicture;
@@ -73,8 +88,6 @@
 }
 
 
-- (IBAction)didTapLike:(id)sender {
-}
 
 - (IBAction)didTapRetweet:(id)sender {
     self.tweet.retweeted = YES;

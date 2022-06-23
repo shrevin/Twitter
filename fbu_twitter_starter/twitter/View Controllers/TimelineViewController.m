@@ -14,6 +14,7 @@
 #import "Tweet.h"
 #import "UIImageView+AFNetworking.h"
 #include "ComposeViewController.h"
+#import "DetailsViewController.h"
 
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 - (IBAction)didTapLogout:(id)sender;
@@ -76,8 +77,9 @@
 }
 
 - (void)didTweet:(Tweet *)tweet {
-    [self.arrayOfTweets addObject:tweet];
+    [self.arrayOfTweets insertObject:tweet atIndex:0];
     [self.tableView reloadData];
+    [self dismissViewControllerAnimated:true completion:nil];
 }
 
 
@@ -85,14 +87,17 @@
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-//    UINavigationController *navigationController = [segue destinationViewController];
-//    ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
-//    composeController.delegate = self;
-    UIViewController *detailsVC = [segue destinationViewController];
-    
-    
+    if ([segue.identifier  isEqual: @"details"]) {
+        TweetCell *cell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        DetailsViewController *detailsVC = [segue destinationViewController];
+        detailsVC.tweetToDisplay = self.arrayOfTweets[indexPath.row];
+    } else {
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.delegate = self;
+    }
+
 }
 
 
