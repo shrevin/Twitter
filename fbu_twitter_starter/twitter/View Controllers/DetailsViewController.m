@@ -26,6 +26,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *retweetsLabel;
 @property (strong, nonatomic) IBOutlet UILabel *likesLabel;
+@property (strong, nonatomic) IBOutlet UIButton *likesButton;
 
 @end
 
@@ -43,7 +44,7 @@
     self.textContent.text = self.tweetToDisplay.text;
     self.nameLabel.text = self.tweetToDisplay.user.name;
     self.handleLabel.text = [@"@" stringByAppendingString:self.tweetToDisplay.user.screenName];
-    NSString *URLString = self.tweetToDisplay.user.profilePicture;
+    NSString *URLString =  self.tweetToDisplay.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
     [self.imageView setImageWithURL:url];
     self.retweetsLabel.text = [NSString stringWithFormat:@"%i", self.tweetToDisplay.retweetCount];
