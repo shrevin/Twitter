@@ -40,16 +40,19 @@ The following **stretch** features are implemented:
 - [ ] Profile Page: pulling down the profile page should blur and resize the header image. (**4 points**)
 
 The following **additional** features are implemented:
-
-- [ ] List anything else that you can get done to improve the app functionality!
 - adding circular profiles to mimic Twitter's UI
 - adding borders to pictures
 - not letting users post their tweet if the character count is over 140 characters
 
+- List anything else that you can get done to improve the app functionality!
+- viewing the profile page of users
+- adding a timeline on the bottom
+- implementing hyperlinks and images in tweets
+
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
 1. I would like to figure out how to get clearer profile images.
-2. I want to also further explore the concept of delegates and how it is used.
+2. I want to also further explore the concept of delegates and how they are used.
 
 ## Video Walkthrough
 
@@ -60,8 +63,8 @@ Here's a walkthrough of implemented user stories:
 GIF created with [Kap](https://getkap.co/).
 
 ## Notes
-
-Describe any challenges encountered while building the app.
+###Describe any challenges encountered while building the app.
+I had trouble figuring how to implement a POST request and understanding the components of the method. Specifically, I had trouble figuring out the API call for replying to a tweet. Another challenge was figuring out how to access the super view of a button which was necessary for replying to a tweet since the sender for this functionality is not a table view cell. Furthermore, I initially struggled with autolayout but understood it better after watching a few videos. 
 
 ## Credits
 
