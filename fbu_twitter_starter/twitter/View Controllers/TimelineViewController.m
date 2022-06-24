@@ -19,10 +19,11 @@
 @interface TimelineViewController () <ComposeViewControllerDelegate, UITableViewDataSource, UITableViewDelegate>
 - (IBAction)didTapLogout:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-
 @property (strong, nonatomic) NSMutableArray *arrayOfTweets;
 @property (strong, nonatomic) UIRefreshControl *refreshControl;
+@property BOOL isReply;
 @end
+
 
 @implementation TimelineViewController
 
@@ -36,6 +37,7 @@
     self.refreshControl = [[UIRefreshControl alloc] init];
     [self.refreshControl addTarget:self action:@selector(fetchTimeline) forControlEvents:UIControlEventValueChanged];
     [self.tableView insertSubview:self.refreshControl atIndex:0];
+    self.isReply = NO;
     // Get timeline_refreshControl
     
 }
@@ -80,6 +82,7 @@
     [self.arrayOfTweets insertObject:tweet atIndex:0];
     [self.tableView reloadData];
     [self dismissViewControllerAnimated:true completion:nil];
+    [self fetchTimeline];
 }
 
 
@@ -92,10 +95,21 @@
         NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
         DetailsViewController *detailsVC = [segue destinationViewController];
         detailsVC.tweetToDisplay = self.arrayOfTweets[indexPath.row];
+    } else if ([segue.identifier  isEqual: @"reply"]) {
+        self.isReply = YES;
+        UINavigationController *navigationController = [segue destinationViewController];
+        ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
+        composeController.isReplyVar = YES;
+        UIView *contentView = (UIView *)[(UIView *)sender superview];
+        TweetCell *cell = (TweetCell *)[contentView superview];
+//        TweetCell *cell = sender;
+//        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        composeController.myTweet = cell.tweet;
     } else {
         UINavigationController *navigationController = [segue destinationViewController];
         ComposeViewController *composeController = (ComposeViewController*)navigationController.topViewController;
         composeController.delegate = self;
+        NSLog(@"COMPOSEEEE");
     }
 
 }

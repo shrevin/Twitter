@@ -8,6 +8,7 @@
 
 #import "ComposeViewController.h"
 #import "APIManager.h"
+#import "TimelineViewController.h"
 
 
 @interface ComposeViewController ()
@@ -53,19 +54,34 @@
 }
 
 - (IBAction)clickTweet:(UIBarButtonItem *)sender {
-    [[APIManager shared] postStatusWithText:self.tweetContent.text completion:^(Tweet *t, NSError *e) {
-        if (self.tweetContent.text) {
-            NSLog(self.tweetContent.text);
-            [self.delegate didTweet:t];
-        } else {
-            NSLog(@"😫😫😫 Error getting home timeline: %@", e.localizedDescription);
-        }
-    }];
+    NSLog(@"%i", self.isReplyVar);
+    if (self.isReplyVar) {
+        [[APIManager shared] replyToTweet:self.tweetContent.text tweet:self.myTweet completion:^(Tweet *t, NSError *e) {
+            if (self.tweetContent.text) {
+                NSLog(self.tweetContent.text);
+                [self.delegate didTweet:t];
+            } else {
+                NSLog(@"😫😫😫 Error getting home timeline: %@", e.localizedDescription);
+            }
+        }];
+        self.isReplyVar = NO;
+    } else {
+        [[APIManager shared] postStatusWithText:self.tweetContent.text completion:^(Tweet *t, NSError *e) {
+            if (self.tweetContent.text) {
+                NSLog(self.tweetContent.text);
+                [self.delegate didTweet:t];
+            } else {
+                NSLog(@"😫😫😫 Error getting home timeline: %@", e.localizedDescription);
+            }
+        }];
+    }
     // the second parameter you are passing in is a completion block 
     [self dismissViewControllerAnimated:true completion:nil];
 }
 - (IBAction)clickClose:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:true completion:nil];
+    NSLog(@"%i", self.isReplyVar);
+    self.isReplyVar = NO;
 }
 
 /*

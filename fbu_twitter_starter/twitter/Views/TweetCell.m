@@ -53,6 +53,7 @@
     self.dateLabel.text = [date shortTimeAgoSinceNow];
     //[@"Time Ago: %@", date shortTimeAgoSinceNow];
     self.synopsisLabel.text = self.tweet.text;
+    [self.synopsisLabel setUserInteractionEnabled:YES];
     NSString *URLString = self.tweet.user.profilePicture;
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
@@ -136,5 +137,19 @@
 }
 
 - (IBAction)didTapReply:(id)sender {
+    self.isReply = YES;
+    //UIViewController *nextVC = [self.storyboard instantiateViewControllerWithIdentifier:@"composeVC"];
+
+//    MyCustomSegue *segue = [[MyCustomSegue alloc] initWithIdentifier:@"composeVC" source:self destination:nextVC];
+//    [self prepareForSegue:segue sender:sender];
+//    [segue perform];
+//    [[APIManager shared] replyToTweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+//         if(error){
+//              NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+//         }
+//         else{
+//             NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+//         }
+//     }];
 }
 @end
