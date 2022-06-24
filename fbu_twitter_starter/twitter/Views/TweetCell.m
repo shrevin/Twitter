@@ -45,18 +45,12 @@
     if (self.tweet.favorited) {
         [self.likesButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
     }
-//    if (self.tweet.retweeted) {
-//        self.
-//    }
-    NSLog(@"%i", self.tweet.favorited);
-    //NSDate *now = [NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     // Configure the input format to parse the date string
     formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
     // Convert String to Date
     NSDate *date = [formatter dateFromString:self.tweet.createdAtString];
     self.dateLabel.text = [date shortTimeAgoSinceNow];
-    
     //[@"Time Ago: %@", date shortTimeAgoSinceNow];
     self.synopsisLabel.text = self.tweet.text;
     NSString *URLString = self.tweet.user.profilePicture;
@@ -65,24 +59,12 @@
     [self.profileImageView setImageWithURL:url];
     self.profileImageView.layer.cornerRadius  = self.profileImageView.frame.size.width/2;
     self.profileImageView.layer.masksToBounds = true;
-    self.profileImageView.layer.borderWidth = 0.5;
+    self.profileImageView.layer.borderWidth = 0.2;
 }
 
 - (IBAction)didTapFavorite:(id)sender {
     // Change button color
     UIButton *btn = (UIButton *)sender;
-//    [btn setImage:[UIImage imageNamed:@"favor-icon"] forState:UIControlStateNormal];
-//    self.tweet.favorited = NO;
-//    self.tweet.favoriteCount -= 1;
-//    [[APIManager shared] unfavorite:self.tweet completion:^(Tweet *tweet, NSError *error) {
-//         if(error){
-//              NSLog(@"Error unfavoriting tweet: %@", error.localizedDescription);
-//         }
-//         else{
-//             NSLog(@"Successfully unfavorited the following Tweet: %@", tweet.text);
-//         }
-//     }];
-    // [self refreshTweet];
     if (!self.tweet.favorited) {
         [btn setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
         // TODO: Update the local tweet model

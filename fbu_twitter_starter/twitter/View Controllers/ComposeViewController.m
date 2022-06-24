@@ -20,6 +20,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.tweetContent.layer.borderWidth = 0.5f;
     
     
 }
