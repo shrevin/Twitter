@@ -58,12 +58,14 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+![](https://github.com/shrevin/Twitter/blob/main/fbu_twitter_starter/6ksp6i.gif)
 
 GIF created with [Kap](https://getkap.co/).
 
 ## Notes
-###Describe any challenges encountered while building the app.
+Describe any challenges encountered while building the app.
+
+
 I had trouble figuring how to implement a POST request and understanding the components of the method. Specifically, I had trouble figuring out the API call for replying to a tweet. Another challenge was figuring out how to access the super view of a button which was necessary for replying to a tweet since the sender for this functionality is not a table view cell. Furthermore, I initially struggled with autolayout but understood it better after watching a few videos. 
 
 ## Credits
