@@ -63,6 +63,9 @@
     NSURL *url = [NSURL URLWithString:URLString];
     NSData *urlData = [NSData dataWithContentsOfURL:url];
     [self.profileImageView setImageWithURL:url];
+    self.profileImageView.layer.cornerRadius  = self.profileImageView.frame.size.width/2;
+    self.profileImageView.layer.masksToBounds = true;
+    self.profileImageView.layer.borderWidth = 0.5;
 }
 
 - (IBAction)didTapFavorite:(id)sender {
