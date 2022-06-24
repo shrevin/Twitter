@@ -12,6 +12,8 @@
 
 @interface ComposeViewController ()
 @property (strong, nonatomic) IBOutlet UITextView *tweetContent;
+@property (strong, nonatomic) IBOutlet UILabel *characterCountLabel;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *tweetButton;
 
 @end
 
@@ -20,10 +22,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.tweetContent.layer.borderWidth = 0.5f;
+    self.tweetContent.layer.borderWidth = 0.2f;
+    self.tweetContent.clipsToBounds = YES;
+    self.tweetContent.layer.cornerRadius = 10.0f;
+    self.tweetContent.delegate = self;
     
     
 }
+
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+    // TODO: Check the proposed new text character count
+    //int character_limit = 140;
+
+    NSString *newText = [self.tweetContent.text stringByReplacingCharactersInRange:range withString:text];
+
+    // TODO: Update character count label
+    
+    self.characterCountLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)newText.length];
+    if (newText.length > 140) {
+        self.characterCountLabel.textColor = [UIColor redColor];
+        self.tweetButton.enabled = false;
+    } else {
+        self.characterCountLabel.textColor = [UIColor blackColor];
+        self.tweetButton.enabled = true;
+    }
+    // Should the new text should be allowed? True/False
+    return true;
+
+
+}
+
 - (IBAction)clickTweet:(UIBarButtonItem *)sender {
     [[APIManager shared] postStatusWithText:self.tweetContent.text completion:^(Tweet *t, NSError *e) {
         if (self.tweetContent.text) {
