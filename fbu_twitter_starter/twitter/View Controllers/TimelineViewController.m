@@ -30,7 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self fetchTimeline];
-    //self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     // initializing a UIRefreshControl
@@ -81,7 +81,7 @@
 - (void)didTweet:(Tweet *)tweet {
     [self.arrayOfTweets insertObject:tweet atIndex:0];
     [self.tableView reloadData];
-    [self dismissViewControllerAnimated:true completion:nil];
+    [self.presentedViewController dismissViewControllerAnimated:true completion:nil];
     [self fetchTimeline];
 }
 

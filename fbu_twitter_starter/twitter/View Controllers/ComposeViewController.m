@@ -80,7 +80,6 @@
 }
 - (IBAction)clickClose:(UIBarButtonItem *)sender {
     [self dismissViewControllerAnimated:true completion:nil];
-    NSLog(@"%i", self.isReplyVar);
     self.isReplyVar = NO;
 }
 
