@@ -183,6 +183,7 @@
                                             <outlet property="likesLabel" destination="eKY-aT-npF" id="SPf-uE-J0T"/>
                                             <outlet property="nameLabel" destination="oAn-qH-AmD" id="epA-cg-Z7Z"/>
                                             <outlet property="profileImageView" destination="2wQ-Sq-xRr" id="dUv-1X-02f"/>
+                                            <outlet property="retweetsButton" destination="xpa-tp-Ws2" id="uNN-IV-GuN"/>
                                             <outlet property="retweetsLabel" destination="t1B-a1-yYK" id="21A-v6-zqM"/>
                                             <outlet property="synopsisLabel" destination="rav-hh-UPw" id="C88-vR-YZw"/>
                                             <outlet property="twitterHandleLabel" destination="M3b-7Q-4rs" id="rGV-Qr-n7t"/>

@@ -20,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) IBOutlet UILabel *synopsisLabel;
 @property (strong, nonatomic) IBOutlet UILabel *retweetsLabel;
 @property (strong, nonatomic) IBOutlet UIButton *likesButton;
+@property (strong, nonatomic) IBOutlet UIButton *retweetsButton;
 @property (strong, nonatomic) IBOutlet UILabel *likesLabel;
 - (IBAction)didTapRetweet:(id)sender;
 - (IBAction)didTapFavorite:(id)sender;

@@ -45,6 +45,9 @@
     if (self.tweet.favorited) {
         [self.likesButton setImage:[UIImage imageNamed:@"favor-icon-red"] forState:UIControlStateNormal];
     }
+//    if (self.tweet.retweeted) {
+//        self.
+//    }
     NSLog(@"%i", self.tweet.favorited);
     //NSDate *now = [NSDate date];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
@@ -116,18 +119,34 @@
 - (IBAction)didTapRetweet:(id)sender {
     // Change button color
     UIButton *btn = (UIButton *)sender;
-    [btn setImage:[UIImage imageNamed:@"retweet-icon-green"] forState:UIControlStateNormal];
-    self.tweet.retweeted = YES;
-    self.tweet.retweetCount += 1;
-    [self refreshTweet];
-    [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
-         if(error){
-              NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
-         }
-         else{
-             NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
-         }
-     }];
+    if (!self.tweet.retweeted) {
+        [btn setImage:[UIImage imageNamed:@"retweet-icon-green"] forState:UIControlStateNormal];
+        self.tweet.retweeted = YES;
+        self.tweet.retweetCount += 1;
+        [self refreshTweet];
+        [[APIManager shared] retweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+             if(error){
+                  NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+             }
+             else{
+                 NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+             }
+         }];
+    } else {
+        [btn setImage:[UIImage imageNamed:@"retweet-icon"] forState:UIControlStateNormal];
+        self.tweet.retweeted = NO;
+        self.tweet.retweetCount -= 1;
+        [self refreshTweet];
+        [[APIManager shared] unretweet:self.tweet completion:^(Tweet *tweet, NSError *error) {
+             if(error){
+                  NSLog(@"Error retweeting tweet: %@", error.localizedDescription);
+             }
+             else{
+                 NSLog(@"Successfully retweeted the following Tweet: %@", tweet.text);
+             }
+         }];
+    }
+    
     
 }
 
