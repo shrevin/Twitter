@@ -58,7 +58,7 @@ Please list two areas of the assignment you'd like to **discuss further with you
 
 Here's a walkthrough of implemented user stories:
 
-![](https://github.com/shrevin/Twitter/blob/main/ezgif.com-gif-maker.gif)
+![](https://github.com/shrevin/Twitter/blob/main/final.gif)
 
 Autolayout Image 1
 ![alt text](https://github.com/shrevin/Twitter/blob/main/autolayout%20image%201.png)
