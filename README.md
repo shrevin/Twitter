@@ -74,7 +74,7 @@ Autolayout Image 1
 Autolayout Image 2
 ![alt text](https://github.com/shrevin/Twitter/blob/main/autolayout%20image%202.png)
 
-GIF created with [Kap](https://getkap.co/).
+GIF created with Quicktime and EZGif.
 
 ## Notes
 Describe any challenges encountered while building the app.
