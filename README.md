@@ -64,6 +64,9 @@ Refreshing the timeline, replying to tweets, unfavoriting, and unretweeting:
 
 ![](https://github.com/shrevin/Twitter/blob/main/ezgif.com-gif-maker.gif)
 
+Character Count and Infinite Loading:
+![](https://github.com/shrevin/Twitter/blob/main/char%20count%20and%20inf%20loading.gif)
+
 Autolayout Image 1
 ![alt text](https://github.com/shrevin/Twitter/blob/main/autolayout%20image%201.png)
 
