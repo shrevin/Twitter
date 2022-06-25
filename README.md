@@ -44,7 +44,7 @@ The following **additional** features are implemented:
 - adding borders to pictures
 - not letting users post their tweet if the character count is over 140 characters
 
-- List anything else that you can get done to improve the app functionality!
+List anything else that you can get done to improve the app functionality!
 - viewing the profile page of users
 - adding a timeline on the bottom
 - implementing hyperlinks and images in tweets
@@ -59,6 +59,12 @@ Please list two areas of the assignment you'd like to **discuss further with you
 Here's a walkthrough of implemented user stories:
 
 ![](https://github.com/shrevin/Twitter/blob/main/ezgif.com-gif-maker.gif)
+
+Autolayout Image 1
+![alt text](https://github.com/shrevin/Twitter/blob/main/autolayout%20image%201.png)
+
+Autolayout Image 2
+![alt text](https://github.com/shrevin/Twitter/blob/main/autolayout%20image%202.png)
 
 GIF created with [Kap](https://getkap.co/).
 
